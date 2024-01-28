@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  palworld:
+    restart: always
+    container_name: palworld
+    image: palserver-proton 
+    volumes:
+      - ./server:/app
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/machine-id:/etc/machine-id:ro
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
+      - PORT=${PORT}
+      - PLAYERS=${PLAYERS}
+      - SERVER_PASSWORD=${SERVER_PASSWORD}
+    networks:
+      - default
+    ports:
+      - "8211:8211/udp"
