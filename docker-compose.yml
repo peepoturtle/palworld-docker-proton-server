@@ -13,6 +13,7 @@ services:
       - PORT=${PORT}
       - PLAYERS=${PLAYERS}
       - SERVER_PASSWORD=${SERVER_PASSWORD}
+      - NO_MULTITHREADING=${NO_MULTITHREADING}
     networks:
       - default
     ports:
