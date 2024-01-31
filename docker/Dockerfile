@@ -1,6 +1,6 @@
 FROM cm2network/steamcmd:root
 
-RUN apt-get update && apt-get install -y gosu cron wget python3
+RUN apt-get update && apt-get install -y gosu cron wget python3 libfreetype6
 
 ARG APPID=2394010
 
