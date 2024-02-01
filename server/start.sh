@@ -1,7 +1,7 @@
 #!/bin/bash
 
 die() {
-    echo "error"
+    echo "$0 script failed, hanging forever..."
     while [ 1 ]; do sleep 10;done
     # exit 1
 }
@@ -43,11 +43,25 @@ ARGS="${ARGS} EpicApp=PalServer"
 
 PalServerDir=/app/PalServer
 
-CMD="$PROTON run ${PalServerDir}/Pal/Binaries/Win64/PalServer-Win64-Test.exe ${ARGS}"
+mkdir -p ${PalServerDir}
+DirPerm=$(stat -c "%u:%g:%a" ${PalServerDir})
+if [ "${DirPerm}" != "1000:1000:755" ];then
+    echo "${PalServerDir} has unexpected permission ${DirPerm} != 1000:1000:755"
+    die
+fi
 
+set -x
 $steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir ${PalServerDir} +login anonymous +app_update ${APPID} validate +quit || die
+set +x
+
+PalServerExe="${PalServerDir}/Pal/Binaries/Win64/PalServer-Win64-Test.exe"
+if [ ! -f ${PalServerExe} ];then
+    echo "${PalServerExe} does not exist"
+    die
+fi
 
 crontab /app/crontab || die
 
+CMD="$PROTON run $PalServerExe ${ARGS}"
 echo "starting server with: ${CMD}"
 ${CMD} || die
