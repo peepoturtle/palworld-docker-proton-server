@@ -32,7 +32,13 @@ docker compose down
 
 
 ## Files
-the server installation will be under `server/PalServer`, this is where you can go install mods
+The server installation will be under `server/PalServer`
+
+## Mods
+Mods can be put in the `mods` folder (`mods/LogicMods` for blueprint mods and `mods/LuaMods` for lua mods)
 
 ## Backups
-there's automatic hourly backup of the server save, backups will be in `backups`, you can change the frequency in `./backups/crontab` *(it will be generated after the first run)*
+There's automatic hourly backup of the server save, backups will be in `backups`, you can change the frequency in `./backups/crontab` *(it will be generated after the first run)*
+
+## Common Errors
+If you get the `unexpected permission` error, run `sudo chmod -R 755 ./server`
