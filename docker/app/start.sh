@@ -62,7 +62,12 @@ fi
 
 if [ ! -f "${PalServerDir}/Pal/Binaries/Win64/dwmapi.dll" ]; then
     echo "Installing UE4SS"
-    cp -r /app/ue4ss/* ${PalServerDir}/Pal/Binaries/Win64/
+    cp -rf /app/ue4ss/* ${PalServerDir}/Pal/Binaries/Win64/
+fi
+
+if [ ! -f "" ]; then
+    echo "Copying default crontab"
+    cp -f /app/crontab /app/backups/crontab
 fi
 
 crontab /app/backups/crontab || die

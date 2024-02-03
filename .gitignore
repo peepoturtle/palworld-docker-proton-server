@@ -1,3 +1,9 @@
 server/*
 !server/.gitkeep
+backups/*
+!backups/.gitkeep
 .env
+mods/LogicMods/*
+!mods/LogicMods/.gitkeep
+mods/LuaMods/*
+!mods/LuaMods/.gitkeep

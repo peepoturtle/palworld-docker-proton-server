@@ -7,6 +7,8 @@ services:
     volumes:
       - ./server:/app/PalServer
       - ./backups:/app/backups
+      - ./mods/LuaMods:/app/PalServer/Pal/Binaries/Win64/Mods
+      - ./mods/LogicMods:/app/PalServer/Pal/Content/Paks/LogicMods
       - /etc/localtime:/etc/localtime:ro
       - /etc/machine-id:/etc/machine-id:ro
     environment:
