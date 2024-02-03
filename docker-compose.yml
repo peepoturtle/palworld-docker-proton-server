@@ -2,9 +2,11 @@ version: '3.9'
 services:
   palworld:
     restart: always
+    build: ./docker
     image: palserver-proton
     volumes:
       - ./server:/app/PalServer
+      - ./backups:/app/backups
       - /etc/localtime:/etc/localtime:ro
       - /etc/machine-id:/etc/machine-id:ro
     environment:
@@ -17,5 +19,3 @@ services:
       - default
     ports:
       - "8211:8211/udp"
-
-# /app/PalServer/Pal/Binaries/Win64

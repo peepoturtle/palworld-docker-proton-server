@@ -30,7 +30,7 @@ ENV STEAM_COMPAT_DATA_PATH=${STEAM_PATH}/steamapps/compatdata/${APPID}
 ENV PROTON=${STEAM_PATH}/compatibilitytools.d/${PROTON_VERSION}/proton
 
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 COPY ./app /app

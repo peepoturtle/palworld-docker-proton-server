@@ -65,7 +65,7 @@ if [ ! -f "${PalServerDir}/Pal/Binaries/Win64/dwmapi.dll" ]; then
     cp -r /app/ue4ss/* ${PalServerDir}/Pal/Binaries/Win64/
 fi
 
-crontab /app/crontab || die
+crontab /app/backups/crontab || die
 
 CMD="$PROTON run $PalServerExe ${ARGS}"
 echo "starting server with: ${CMD}"
