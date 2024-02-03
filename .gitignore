@@ -1,3 +1,2 @@
-server/PalServer
-server/backups
+server/
 .env

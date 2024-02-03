@@ -2,19 +2,20 @@ version: '3.9'
 services:
   palworld:
     restart: always
-    container_name: palworld
-    image: palserver-proton 
+    image: palserver-proton
     volumes:
-      - ./server:/app
+      - ./server:/app/PalServer
       - /etc/localtime:/etc/localtime:ro
       - /etc/machine-id:/etc/machine-id:ro
     environment:
-      - SERVER_NAME=${SERVER_NAME}
-      - PORT=${PORT}
-      - PLAYERS=${PLAYERS}
-      - SERVER_PASSWORD=${SERVER_PASSWORD}
-      - NO_MULTITHREADING=${NO_MULTITHREADING}
+      - SERVER_NAME=${SERVER_NAME:-MyPalworldServer}
+      - PORT=${PORT:-8211}
+      - PLAYERS=${PLAYERS:-32}
+      - SERVER_PASSWORD=${SERVER_PASSWORD:-}
+      - NO_MULTITHREADING=${NO_MULTITHREADING:-0}
     networks:
       - default
     ports:
       - "8211:8211/udp"
+
+# /app/PalServer/Pal/Binaries/Win64

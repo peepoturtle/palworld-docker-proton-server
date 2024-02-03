@@ -33,4 +33,7 @@ ENV PROTON=${STEAM_PATH}/compatibilitytools.d/${PROTON_VERSION}/proton
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
+COPY ./app /app
+RUN chmod +x /app/start.sh /app/bin/backup.sh
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
