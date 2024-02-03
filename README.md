@@ -35,4 +35,4 @@ docker compose down
 the server installation will be under `server/PalServer`, this is where you can go install mods
 
 ## Backups
-there's automatic hourly backup of the server save, backups will be in `backups`, you can change the frequency in `./backups/crontab`
+there's automatic hourly backup of the server save, backups will be in `backups`, you can change the frequency in `./backups/crontab` *(it will be generated after the first run)*
